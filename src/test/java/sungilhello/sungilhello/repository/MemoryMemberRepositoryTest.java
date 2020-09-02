@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import sungilhello.sungilhello.domain.Member;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,5 +44,20 @@ class MemoryMemberRepositoryTest {
 
         assertThat(result).isEqualTo(result);
 
+    }
+
+    @Test
+    public void findAll() {
+        Member m1 = new Member();
+        m1.setName("sung");
+        repo.save(m1);
+
+        Member m2 = new Member();
+        m2.setName("jen");
+        repo.save(m2);
+
+        List<Member> result = repo.findAll();
+
+        assertThat(result.size()).isEqualTo(2);
     }
 }
