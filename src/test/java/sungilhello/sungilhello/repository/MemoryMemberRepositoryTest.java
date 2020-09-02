@@ -3,7 +3,7 @@ package sungilhello.sungilhello.repository;
 // public class MemoryMemberRepositoryTest {
 // }
 
-import org.junit.jupiter.api.Assertions;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import sungilhello.sungilhello.domain.Member;
 
@@ -19,7 +19,8 @@ class MemoryMemberRepositoryTest {
         repo.save(member);
         
         Member result = repo.findById(member.getId()).get();
-        Assertions.assertEquals(member, result);
+//        Assertions.assertEquals(member, result);
+        Assertions.assertThat(member).isEqualTo(result);
         // make sure both member id and result id are the same
         System.out.println("(result == member) = " + (result == member));
     }
