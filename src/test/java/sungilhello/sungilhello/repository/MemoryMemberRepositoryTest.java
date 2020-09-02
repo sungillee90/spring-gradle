@@ -4,6 +4,7 @@ package sungilhello.sungilhello.repository;
 // }
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import sungilhello.sungilhello.domain.Member;
 
@@ -14,7 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MemoryMemberRepositoryTest {
 
-    MemberRepository repo = new MemoryMemberRepository();
+    MemoryMemberRepository repo = new MemoryMemberRepository();
+
+    @AfterEach
+    public void afterEach() {
+        repo.clearStore();
+    }
 
     @Test
     public void save(){
@@ -60,4 +66,6 @@ class MemoryMemberRepositoryTest {
 
         assertThat(result.size()).isEqualTo(2);
     }
+
+
 }
