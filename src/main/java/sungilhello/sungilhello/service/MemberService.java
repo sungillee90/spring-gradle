@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-
+// cmd + shift + t == Create Test
     private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     /**
