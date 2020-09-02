@@ -9,7 +9,11 @@ import java.util.Optional;
 
 public class MemberService {
 // cmd + shift + t == Create Test
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * For sign up membership
@@ -27,7 +31,7 @@ public class MemberService {
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
             .ifPresent(m -> {
-            throw new IllegalThreadStateException("Existing member name.");
+            throw new IllegalStateException("Existing member name.");
             });
     }
 
