@@ -1,5 +1,7 @@
 package sungilhello.sungilhello.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import sungilhello.sungilhello.domain.Member;
 import sungilhello.sungilhello.repository.MemberRepository;
 import sungilhello.sungilhello.repository.MemoryMemberRepository;
@@ -7,10 +9,12 @@ import sungilhello.sungilhello.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 // cmd + shift + t == Create Test
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

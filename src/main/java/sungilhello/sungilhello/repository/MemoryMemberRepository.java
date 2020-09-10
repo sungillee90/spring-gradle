@@ -1,10 +1,12 @@
 package sungilhello.sungilhello.repository;
 
+import org.springframework.stereotype.Repository;
 import sungilhello.sungilhello.domain.Member;
 
 import java.util.*;
 
-public class MemoryMemberRepository implements  MemberRepository {
+@Repository
+public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
