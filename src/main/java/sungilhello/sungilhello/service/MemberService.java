@@ -10,13 +10,10 @@ import sungilhello.sungilhello.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@Component
 public class MemberService {
 // cmd + shift + t == Create Test
     private final MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
